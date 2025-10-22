@@ -4,8 +4,7 @@ Implement a small smart home control program using Python and the help of Java a
 Step 1: Feasibility Analysis<br/>
 | Requirement | Feasibility	|  Notes |
 |---|---|---|
-|Python-based |✅ Partially|  Python can run on Android via Chaquopy or BeeWare / VOC, but GUI frameworks like Kivy are |
-|Android app  |             | avoided. Chaquopy is proven for non-GUI apps.|
+|Python-based Android app|✅Partially|Python can run on Android via Chaquopy or BeeWare / VOC, but GUI frameworks like Kivy are avoided. Chaquopy is proven for non-GUI apps.|
 
 Runs on Android 9	        ✅                 Android 9 is supported by Chaquopy.
 
