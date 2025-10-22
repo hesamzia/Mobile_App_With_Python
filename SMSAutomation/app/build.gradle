@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+    id 'com.chaquo.python' version '16.1.0'
+}
+
+android {
+    namespace 'com.example.smsautomation'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.smsautomation"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+// ✅ The Chaquopy configuration block must be here, **outside android{}**
+chaquopy {
+    defaultConfig {
+        pip {
+            install "pandas"
+            install "openpyxl"
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+}

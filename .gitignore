@@ -205,3 +205,46 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# ================================
+# Android Studio / Gradle / Chaquopy Project
+# ================================
+
+# Build outputs
+SMSAutomation/app/build/
+SMSAutomation/build/
+
+# Gradle cache
+SMSAutomation/.gradle/
+
+# Local SDK and environment settings
+SMSAutomation/local.properties
+
+# IDE (Android Studio / IntelliJ)
+SMSAutomation/.idea/
+SMSAutomation/*.iml
+
+# Python cache
+SMSAutomation/app/src/main/python/__pycache__/
+SMSAutomation/app/src/main/python/*.pyc
+
+# CSV test data (keep local only)
+SMSAutomation/app/src/main/python/messages.csv
+
+# OS-specific files
+SMSAutomation/.DS_Store
+SMSAutomation/Thumbs.db
+
+# Log and temporary files
+SMSAutomation/*.log
+
+# ================================
+# Optional (add if you generate reports or archives)
+# ================================
+SMSAutomation/*.zip
+SMSAutomation/*.tar
+SMSAutomation/*.gz
+SMSAutomation/*.bak
+SMSAutomation/*.tmp
+
