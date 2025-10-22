@@ -2,7 +2,9 @@
 Implement a small smart home control program using Python and the help of Java and artificial intelligence collaboration. An experience in how to control and behave with artificial intelligence as a programming assistant.
 
 Step 1: Feasibility Analysis
+
 Requirement	                Feasibility	        Notes
+
 Python-based 	            ✅ Partially	      Python can run on Android via Chaquopy or BeeWare / VOC, but GUI frameworks like Kivy are 
 Android app                                     avoided. Chaquopy is proven for non-GUI apps.
 
