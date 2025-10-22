@@ -5,13 +5,12 @@ Step 1: Feasibility Analysis<br/>
 | Requirement | Feasibility	|  Notes |
 |---|---|---|
 |Python-based Android app|✅Partially|Python can run on Android via Chaquopy or BeeWare / VOC, but GUI frameworks like Kivy are avoided. Chaquopy is proven for non-GUI apps.|
+|Runs on Android 9|✅|Android 9 is supported by Chaquopy.|
 
-Runs on Android 9	        ✅                 Android 9 is supported by Chaquopy.
-
-Background SMS sending	⚠️	Android has strict background SMS policies. From Android 8 (Oreo), apps cannot run arbitrary background services unless you implement a foreground service (even if there is no GUI, a small notification is mandatory).
-Reads/writes Excel (CSV)	✅	Python’s pandas or openpyxl can be used. Chaquopy supports pandas.
-No GUI	✅	That simplifies things.
-SMS status tracking (sent/delivered)	⚠️	Requires SMS BroadcastReceiver integration in Java/Kotlin; Python alone cannot receive SMS delivery callbacks directly. Chaquopy can call Java code for this.
+|Background SMS sending	|⚠️	|Android has strict background SMS policies. From Android 8 (Oreo), apps cannot run arbitrary background services unless you implement a foreground service (even if there is no GUI, a small notification is mandatory).|
+|Reads/writes Excel (CSV)|✅	|Python’s pandas or openpyxl can be used. Chaquopy supports pandas.|
+|No GUI|✅|That simplifies things.|
+|SMS status tracking (sent/delivered)|⚠️|Requires SMS BroadcastReceiver integration in Java/Kotlin; Python alone cannot receive SMS delivery callbacks directly. Chaquopy can call Java code for this.|
 
 Python itself isn’t native to mobile platforms, but you can use frameworks that package Python code into mobile apps for example 
 Chaquopy (for Android)
