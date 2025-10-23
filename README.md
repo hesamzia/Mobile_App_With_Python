@@ -97,6 +97,13 @@ Foreground service trade-off:
 - SMS delivery tracking requires minimal Java code; cannot be pure Python.
 
 ## Strategy for Dividing the Project into Independent Chat Modules
+In this experience, in addition to trying to experience mobile programming with Python, I was also looking for another experience, which was to get help from AI as an assistant. At first, it was not a good experience at all. Over time, I realized that working with AIs like ChatGPT has its own method. When working with AIs, you should consider the following:
+- Never trust the words of AI completely. He makes decisions by searching through the experiences of others, which may have thousands of exceptions and detailed issues.
+- Help him analyze the problem to choose the best solution. This can be done by constantly asking questions about small things that he may not have considered.
+- Never leave big issues to her in their entirety, but talk to her about the whole thing at one stage, then plan smaller issues based on the results and solve each one in different chats.
+- Don't let it elaborate on issues or make off-topic suggestions. Be aware that these AIs can easily get sidetracked and forget things.
+- If the chat gets too long, your segmentation may be flawed. In these cases, try to close the chat somewhere and get an understandable summary from the AI ​​and continue it in the next chat.
+In general, in programming and system design, consider artificial intelligence only as an assistant that helps you achieve high speed in design, implementation, and documentation, but if you leave it alone, it will definitely not be able to complete the project and will lead the project astray. So, if you don't have the basics of designing and coding with programming languages ​​and the science behind these topics, never program with AI, especially if your program is a bit large and complex.
 
 ### Principle
 - Each chat should be self-contained: all necessary information, libraries, and file structures should be included.
@@ -113,98 +120,20 @@ Foreground service trade-off:
 |Module 5: Testing & Debugging|Validate on device|Steps to test sending SMS, check CSV updates, handle edge cases (missed deliveries, CSV errors)|
 |Module 6: APK Build|Build and deploy APK|Gradle build instructions, Chaquopy packaging, testing on Android 9 device|
 
+### How to Start Each Chat
+- At the beginning of each chat, copy a short summary of the project:
 
-### Step 2: Key Libraries & Tools
-Python Libraries
-pandas → For reading/writing Excel/CSV.
-datetime → For timestamp comparison.
-time or schedule → For periodic checking.
-jnius (via Chaquopy) → For calling Android Java APIs for sending SMS and receiving delivery reports.
-Android-Specific
-Chaquopy → Python integration in Android Studio. Supports background services and calling Java APIs.
-Android Studio → Required for building APK. Chaquopy plugin is installed here.
-Java/Kotlin code → Minimal code to handle SMS delivery broadcast and foreground service.
+Project: Python-based Android SMS automation app for Android 9
+Features: Foreground service, CSV tracking, SMS sending, delivery status
+Libraries: pandas, openpyxl, jnius (Chaquopy)
+Goal: Implement module X
 
-### Step 3: Potential Problems
-Background Execution
-Android will kill background Python threads if the app is not in a foreground service.
-Must implement a persistent notification even if invisible to the user.
-SMS Delivery Status
-Cannot be fully implemented in Python alone.
-Need Java BroadcastReceiver integrated with Python via Chaquopy to update CSV.
-Building APK
-Using WSL + Buildozer is unnecessary here.
-Correct approach: Android Studio + Chaquopy plugin.
-Must ensure all libraries (pandas, openpyxl) are supported by Chaquopy. Pandas is officially supported.
-No GUI
-This is fine; just ensure the app is headless except for required notification for foreground service.
+- Include previous deliverables or file names, so the new chat has everything it needs.
 
-### Step 4: Recommended Architecture
-
-### Step 5: Steps for Building APK
-
-### ✅ Step 6: Conclusion
-Feasible? ✅ Yes, with Chaquopy + Android Studio.
-Not feasible purely in Python? ⚠️ Correct. Python alone cannot:
-Receive SMS delivery reports
-Run as persistent background service on Android 9+
-Problematic approaches to avoid: Kivy, Buildozer, WSL Ubuntu, kevy (as per your past experience).
-Required compromise: Minimal Java/Kotlin code for SMS and service integratio
-
-
-
-Python itself isn’t native to mobile platforms, but you can use frameworks that package Python code into mobile apps for example 
-Chaquopy (for Android)
-Python SDK for Android Studio.
-Allows running Python code alongside Java/Kotlin in Android apps.
-Pros: Easy integration if you already know Android development.
-Cons: Not fully standalone; mostly for using Python logic in Android apps.
-
-. Limitations
-Performance: Python is slower than Java/Kotlin (Android) or Swift (iOS). For heavy apps, this matters.
-Native APIs: Accessing all platform-specific features (like camera, Bluetooth) can be harder.
-App size: Apps built with Python frameworks are usually larger.
-iOS restrictions: Apple can be picky about apps not written in native languages.
-
-
-. Limitations
-Background SMS restrictions: Modern Android versions are strict about apps sending SMS in the background. Your app may only work reliably if it’s the default SMS app.
-App store policies: Google Play may reject apps that send SMS automatically without strong user consent.
-Always running app: Python apps don’t run as background services natively; you’d need to integrate with Android services.
-
-Android SMS Restrictions
-Starting Android 8+ (and stricter in 10+), apps cannot send SMS in the background unless they are the default SMS app.
-Being a default SMS app means your app will replace the user’s SMS app, which is not ideal for most users.
-Google Play Store may reject apps that try to send SMS automatically without being the default app.
-
-Unlike Android 10 and later, Android 9 still allows background SMS sending via tools like Termux — so you can 100% build your automatic SMS scheduler in Python, for free, and without needing root or extra hardware.
-
-Option A: Use Kivy + Buildozer
-Write the app in Python on Windows.
-Kivy supports mobile UI and Android packaging.
-You’ll need WSL (Windows Subsystem for Linux) or a Linux virtual machine to run Buildozer, because it only works on Linux systems.
-Buildozer packages your Python app into an .apk file you can install on Android.
-You can then call Android’s SMS API using Pyjnius.
-However, sending SMS automatically will still require the app to:
-Request the SEND_SMS permission.
-Possibly become the default SMS app on Android 10+ (on Android 9 it’s okay).
-
-Option B: Use Chaquopy (Python inside Android Studio)
-Android Studio runs on Windows.
-Chaquopy lets you write part of your Android app logic in Python.
-You use Java/Kotlin for UI and permissions.
-Python handles scheduling and reading files.
-This produces a proper Android .apk file.
-
-3. Publishing Limitation
-Even if you succeed in building a .apk, publishing on Google Play is very unlikely to be approved if:
-It sends SMS automatically.
-It doesn’t have clear user interaction before sending each message
-
-Let’s restate what you want:
-You want to develop your Android SMS app in Python (on your Windows PC).
-You want to test it on a mobile simulator/emulator on Windows.
-When ready, you’ll build an .apk and transfer it once to your Android 9 phone for real use.
-No Play Store, no publishing — just local testing and maybe uploading the project to GitHub later.
-✅ Yes, that’s 100% doable.
+### Tips to Avoid Confusion or Loops
+- Always reference module number (“We are implementing Module 2: CSV Handling”).
+- Use self-contained code snippets — never rely on “previous chat” to define variables or paths.
+- Test each module independently before moving to the next.
+- Save all file names, folder structure, and Gradle configs; copy them into the new chat as context.
+- Include comments in code to remind the next chat where it fits in the architecture.
 
