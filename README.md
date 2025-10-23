@@ -20,7 +20,7 @@ The main challenge was to create an application capable of reading message sched
 - A foreground service is an app component that runs continuously even when the app UI is not visible, but it must show a persistent notification.
 - Android will not kill the service under normal circumstances, so your periodic SMS sending will be reliable.
 - The Python code can run in the service via Chaquopy, but it must start when the service starts.<br/>
-Foreground service trade-off:
+Foreground service trade-off:<br/>
 ✅ Reliable execution<br/>
 ✅ CSV reading/writing works as intended<br/>
 ✅ SMS sending works reliably<br/>
