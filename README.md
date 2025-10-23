@@ -1,7 +1,10 @@
 # Mobile_App_With_Python
-Implement a small smart home control program using Python and the help of Java and artificial intelligence collaboration. An experience in how to control and behave with artificial intelligence as a programming assistant.
+The SMSAutomation project is an Android-based system designed to automatically send scheduled SMS messages using Python logic integrated into an Android Java environment through Chaquopy. The system reads and updates a CSV/Excel file containing message schedules, filters messages due for sending, and communicates with Android's SMSManager to deliver messages. 
+This project implemented as a freelance project for a client. we have presented it in this post as an educational project with permission from the client and with minor changes. Given the educational aspect of this post, we have also tried to mention our experience in using AI as an assistant to help with design, coding, and setup .
+This report combines both technical and formal aspects,describing the development journey from setup to successful on-device testing.
 
 ### Requirements
+The main challenge was to create an application capable of reading message schedules from external files, processing them through Python logic, and sending SMS messages from an Android device without relying on third-party APIs or online connectivity. The system had to maintain synchronization between the Python scheduler. 
 
 ### Feasibility Analysis
 | Requirement | Feasibility	|  Notes |
@@ -56,6 +59,15 @@ Foreground service trade-off:
 
 
 ### Technical Stack
+#### System Requirements
+ - Android Studio with Gradle build system
+ - Android device running Android 9 (target and test device)
+ - Chaquopy Plugin v16.1.0
+ - JDK 17.0.16 (Eclipse Adoptium)
+ - Gradle Version 8.7
+ - Android Gradle Plugin (AGP) 8.5.0
+ - Python 3.8 environment for Chaquopy compatibility
+ 
 #### Python Libraries
 - pandas → For CSV/Excel handling.
 - datetime → For time comparison.
@@ -65,6 +77,7 @@ Foreground service trade-off:
 - Foreground Service → Runs Python scripts reliably in the background.
 - Chaquopy → Python integration with Android Studio.
 - Android Studio → Building APK on Windows.
+
 #### APK Build Process
 - Android Studio project with Empty Activity.
 - Chaquopy plugin installed.
@@ -137,3 +150,13 @@ Goal: Implement module X
 - Save all file names, folder structure, and Gradle configs; copy them into the new chat as context.
 - Include comments in code to remind the next chat where it fits in the architecture.
 
+ ### Installation and Usage Instructions
+ - Clone or open the project in Android Studio.
+ - Set Gradle JDK to Java 17 (17.0.16).
+ - Ensure Gradle version 8.7 and AGP 8.5.0.
+ - Add Chaquopy plugin (v16.1.0) to top-level and app build.gradle files.
+ - Confirm Python 3.8 installation with pandas and openpyxl.
+ - Run the app on an Android 9 device.
+ - Grant permissions: READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, SEND_SMS.
+ - Ensure messages.csv exists under /storage/emulated/0/SMSAutomation/ with proper columns: date, time, phone, text, status.
+ - Tap Run — system will send all ready messages and update file statuses
