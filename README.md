@@ -1,5 +1,7 @@
 # Mobile_App_With_Python
-Implement a small smart home control program using Python and the help of Java and artificial intelligence collaboration. An experience in how to control and behave with artificial intelligence as a programming assistant.<br/>
+Implement a small smart home control program using Python and the help of Java and artificial intelligence collaboration. An experience in how to control and behave with artificial intelligence as a programming assistant.
+
+### Requirements
 
 ### Feasibility Analysis
 | Requirement | Feasibility	|  Notes |
@@ -95,6 +97,21 @@ Foreground service trade-off:
 - SMS delivery tracking requires minimal Java code; cannot be pure Python.
 
 ## Strategy for Dividing the Project into Independent Chat Modules
+
+### Principle
+- Each chat should be self-contained: all necessary information, libraries, and file structures should be included.
+- Use numbered steps or modules — each chat handles one module and produces complete deliverables (code snippets, folder structures, Gradle configs).
+- Avoid dependencies on “previous chat state” — each module contains explicit instructions to continue from the last stage.
+
+### Suggested Modules
+|Module|Purpose|Deliverables in Chat|
+|---|---|---|
+|Module 1: Project Setup|Prepare Windows + Android Studio + Chaquopy environment|Step-by-step instructions to install Android Studio, configure Chaquopy plugin, create empty activity project, configure Gradle with Python and dependencies|
+|Module 2: CSV Handling (Python)|Implement reading/writing Excel/CSV and status tracking|Python script for: reading CSV, filtering not sent rows, updating status; pandas/openpyxl setup; sample CSV file|
+|Module 3: SMS Sending (Python + Java)|Integrate Python with Android SMS API|Java/Kotlin foreground service template; Python functions to call Java SMS API via Chaquopy; sample code for sending SMS|
+|Module 4: Foreground Service Setup|Combine CSV, SMS, and delivery handling|Full foreground service template: start notification, run Python loop, handle exceptions, integrate all previous modules|
+|Module 5: Testing & Debugging|Validate on device|Steps to test sending SMS, check CSV updates, handle edge cases (missed deliveries, CSV errors)|
+|Module 6: APK Build|Build and deploy APK|Gradle build instructions, Chaquopy packaging, testing on Android 9 device|
 
 
 ### Step 2: Key Libraries & Tools
