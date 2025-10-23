@@ -1,6 +1,6 @@
 # Mobile_App_With_Python
-The SMSAutomation project is an Android-based system designed to automatically send scheduled SMS messages using Python logic integrated into an Android Java environment through Chaquopy. The system reads and updates a CSV/Excel file containing message schedules, filters messages due for sending, and communicates with Android's SMSManager to deliver messages. 
-This project implemented as a freelance project for a client. we have presented it in this post as an educational project with permission from the client and with minor changes. Given the educational aspect of this post, we have also tried to mention our experience in using AI as an assistant to help with design, coding, and setup .
+The SMSAutomation project is an Android-based system designed to automatically send scheduled SMS messages using Python logic integrated into an Android Java environment through Chaquopy. The system reads and updates a CSV/Excel file containing message schedules, filters messages due for sending, and communicates with Android's SMSManager to deliver messages.<br/> 
+This project implemented as a freelance project for a client. we have presented it in this post as an educational project with permission from the client and with minor changes. Given the educational aspect of this post, we have also tried to mention our experience in using AI as an assistant to help with design, coding, and setup.<br/>
 This report combines both technical and formal aspects,describing the development journey from setup to successful on-device testing.
 
 ### Requirements
@@ -19,13 +19,13 @@ The main challenge was to create an application capable of reading message sched
 #### Foreground Service Basics
 - A foreground service is an app component that runs continuously even when the app UI is not visible, but it must show a persistent notification.
 - Android will not kill the service under normal circumstances, so your periodic SMS sending will be reliable.
-- The Python code can run in the service via Chaquopy, but it must start when the service starts.
+- The Python code can run in the service via Chaquopy, but it must start when the service starts.<br/>
 Foreground service trade-off:
-✅ Reliable execution
-✅ CSV reading/writing works as intended
-✅ SMS sending works reliably
-✅ Delivery status tracking works
-⚠️ Small persistent notification visible
+✅ Reliable execution<br/>
+✅ CSV reading/writing works as intended<br/>
+✅ SMS sending works reliably<br/>
+✅ Delivery status tracking works<br/>
+⚠️ Small persistent notification visible<br/>
 ⚠️ Slight increase in resource usage
 
 ## Project Outline: Python-Based SMS Foreground App for Android 9
@@ -97,11 +97,11 @@ Foreground service trade-off:
         - Update status to "sent" in CSV.
 
 ### Advantages of This Approach
-✅ Works reliably on Android 9+
-✅ No GUI, minimal complications
-✅ CSV/Excel tracking fully automated
-✅ Compatible with Windows + Android Studio
-✅ Avoids Kivy, Buildozer, WSL, or kevy issues
+✅ Works reliably on Android 9+<br/>
+✅ No GUI, minimal complications<br/>
+✅ CSV/Excel tracking fully automated<br/>
+✅ Compatible with Windows + Android Studio<br/>
+✅ Avoids Kivy, Buildozer, WSL, or kevy issues<br/>
 ✅ Python code reusable for logic changes
 
 ### Limitations / Trade-offs
@@ -115,7 +115,7 @@ In this experience, in addition to trying to experience mobile programming with 
 - Help him analyze the problem to choose the best solution. This can be done by constantly asking questions about small things that he may not have considered.
 - Never leave big issues to her in their entirety, but talk to her about the whole thing at one stage, then plan smaller issues based on the results and solve each one in different chats.
 - Don't let it elaborate on issues or make off-topic suggestions. Be aware that these AIs can easily get sidetracked and forget things.
-- If the chat gets too long, your segmentation may be flawed. In these cases, try to close the chat somewhere and get an understandable summary from the AI ​​and continue it in the next chat.
+- If the chat gets too long, your segmentation may be flawed. In these cases, try to close the chat somewhere and get an understandable summary from the AI ​​and continue it in the next chat.<br/>
 In general, in programming and system design, consider artificial intelligence only as an assistant that helps you achieve high speed in design, implementation, and documentation, but if you leave it alone, it will definitely not be able to complete the project and will lead the project astray. So, if you don't have the basics of designing and coding with programming languages ​​and the science behind these topics, never program with AI, especially if your program is a bit large and complex.
 
 ### Principle
@@ -136,9 +136,9 @@ In general, in programming and system design, consider artificial intelligence o
 ### How to Start Each Chat
 - At the beginning of each chat, copy a short summary of the project:
 
-Project: Python-based Android SMS automation app for Android 9
-Features: Foreground service, CSV tracking, SMS sending, delivery status
-Libraries: pandas, openpyxl, jnius (Chaquopy)
+Project: Python-based Android SMS automation app for Android 9<br/>
+Features: Foreground service, CSV tracking, SMS sending, delivery status<br/>
+Libraries: pandas, openpyxl, jnius (Chaquopy)<br/>
 Goal: Implement module X
 
 - Include previous deliverables or file names, so the new chat has everything it needs.
